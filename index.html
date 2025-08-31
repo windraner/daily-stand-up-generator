@@ -6,7 +6,15 @@
   <title>Daily stand-up generator</title>
   <style>
     .root {
-
+      max-width: 500px;
+      margin: 20px auto;
+      font-size: 30px;
+      font-family: sans-serif;
+      text-align: center;
+      cursor: pointer;
+    }
+    .root:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -50,6 +58,14 @@
       return arr[rndInteger]
     }
     root.innerHTML = `Коллеги, ${getRandom(initials)} вчора ${getRandom(yesterday)}, а согодні ${getRandom(tomorrows)} на цьому все ${getRandom(finals)}`
+
+    root.addEventListener('click', () => {
+      navigator.clipboard.writeText(root.innerText)
+        .then(() => {
+          root.style.color = 'green'
+        })
+        .catch(err => console.error(err));
+    })
   </script>
 </body>
 </html>
