@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily stand-up generator</title>
+  <style>
+    .root {
+
+    }
+  </style>
+</head>
+<body>
+  <h1 id="root" class="root"></h1>
+  <script>
+    const initials = [
+      'всім привіт',
+      'привіт',
+      'доброго ранку',
+      'мене чути? супер',
+      'привіт всім ще раз',
+    ]
+    const yesterday = [
+      'займався цілями спринта',
+      'хотів закінчити задачу, але не вийшло',
+      'взяв нову задачу, почав робити',
+      'займався задачами ком’юніті',
+      'було досить багато всього і ще не до кінця готово'
+    ]
+    const tomorrows = [
+      'ще кілька речей треба доробити по цій задачі',
+      'потрібно ще раз переглянути фінально і тоді все буде готово',
+      'прилетіала термінова задача, тому займусь нею',
+      'треба буде випасти на пару годин до лікаря, не губіть мене',
+      'зустріч з іншою командою, є питання по темі'
+    ]
+    const finals = [
+      'дякую',
+      'передаю слово далі',
+      'підхоплюйте',
+      'хто ще не говорив?',
+      'якщо є питання — пишіть, далі хто там?'
+    ]
+    const root = document.getElementById('root')
+    function getRndInteger (min, max) {
+      return Math.floor(Math.random() * (max - min) ) + min
+    }
+    function getRandom (arr) {
+      const rndInteger = getRndInteger(0, arr.length)
+      return arr[rndInteger]
+    }
+    root.innerHTML = `Коллеги, ${getRandom(initials)} вчора ${getRandom(yesterday)}, а согодні ${getRandom(tomorrows)} на цьому все ${getRandom(finals)}`
+  </script>
+</body>
+</html>
